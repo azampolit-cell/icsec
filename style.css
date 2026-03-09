@@ -38,12 +38,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    /* Уменьшили отступы с 30px до 10px, чтобы компенсировать большой логотип */
+    padding: 10px 0; 
     border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 .logo img {
-    height: 50px;
-    /* Инверсию убрали, грузится как есть */
+    height: 100px; /* Увеличили логотип в 2 раза! Только .png, как договаривались ;) */
+    width: auto;
 }
 nav a {
     color: #fff;
@@ -256,3 +257,64 @@ footer a:hover {
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
 .delay-4 { transition-delay: 0.4s; }
+
+/* =========================================
+   АДАПТИВ ДЛЯ ПЛАНШЕТОВ И МОБИЛОК
+   ========================================= */
+
+/* Для планшетов (экраны меньше 992px) */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 44px; }
+    
+    /* Карточки преимуществ ставим по 2 в ряд (вместо 4) */
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    
+    /* Форму сбиваем в 1 колонку */
+    .form-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Для смартфонов (экраны меньше 768px) */
+@media (max-width: 768px) {
+    /* Шапка: логотип сверху, меню под ним */
+    header { 
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 20px 0; 
+    }
+    .logo img { height: 80px; } /* На телефоне логотип чуть аккуратнее */
+    
+    nav { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 15px; 
+    }
+    nav a { margin-left: 0; }
+    .contact-phone { margin-left: 0; width: 100%; text-align: center; margin-top: 10px; }
+    
+    /* Тексты центрируем, шрифты уменьшаем */
+    .hero { padding: 40px 0; text-align: center; }
+    .hero h1 { font-size: 32px; }
+    .mission { font-size: 24px; padding: 60px 0; text-align: center; }
+    
+    /* Карточки преимуществ ставим друг под другом */
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card { text-align: center; }
+    
+    /* Вендоры и клиенты тоже друг под другом */
+    .trust-grid { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+    .logos-wrap { justify-content: center; }
+    
+    /* Форма и кнопка */
+    .form-info h2 { font-size: 32px; }
+    .btn-submit { width: 100%; align-self: center; }
+    
+    /* Подвал */
+    .footer-inner { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 20px; 
+        text-align: center; 
+    }
+    footer a { margin: 5px 10px; display: inline-block; }
+}
