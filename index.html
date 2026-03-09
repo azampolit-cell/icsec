@@ -3,204 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инновационный Центр Безопасности - ИЦБ</title>
+    <title>ICSEC - Информационная безопасность</title>
     <style>
-        /* Обнуление и базовые настройки */
+        /* Базовые стили */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #0f1115; /* Глубокий темный фон */
-            color: #ffffff; /* Белый текст для контраста */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: #f4f4f4; /* Светлый базовый фон */
+            color: #111;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Темная секция (Шапка и Геро-блок) */
+        .dark-section {
+            background-color: #0a0a0a;
+            color: #fff;
+            padding-bottom: 80px;
         }
 
         /* Шапка */
-        .header {
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background-color: #1a1d24;
-            border-bottom: 2px solid #ff4500; /* Оранжевый акцент с логотипа */
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .logo-container img {
-            height: 150px;
-            /* Выворотка черного логотипа: делаем его белым */
+        .logo img {
+            height: 50px;
         }
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-        .nav-links a {
-            color: #ffffff;
+        nav a {
+            color: #fff;
             text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
+            margin-left: 30px;
             font-size: 14px;
+            text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s;
         }
-        .nav-links a:hover {
-            color: #ff4500;
+        .contact-phone {
+            font-weight: bold;
+            font-size: 16px;
         }
 
-        /* Главный экран (Hero) */
+        /* Геро-блок */
         .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 85vh; /* Растягиваем почти на весь экран */
-            padding: 20px;
-            background: radial-gradient(circle at top, #232730 0%, #0f1115 100%);
+            padding: 100px 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
         .hero h1 {
-            font-size: 52px;
-            margin-bottom: 20px;
-            color: #ffffff;
+            font-size: 48px;
+            font-weight: 300;
             line-height: 1.2;
         }
         .hero h1 span {
-            color: #ff4500;
-        }
-        .hero p {
-            font-size: 20px;
-            max-width: 800px;
-            margin-bottom: 40px;
-            color: #cccccc;
-        }
-        .cta-button {
-            background-color: #ff4500;
-            color: #ffffff;
-            padding: 18px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 18px;
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
         }
-        .cta-button:hover {
-            background-color: #e03e00;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
+        .hero-image-placeholder {
+            background: #222;
+            border-radius: 10px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
         }
 
-        /* Секция услуг */
-        .services-section {
-            padding: 100px 5%;
-            background-color: #121419;
+        /* Миссия */
+        .mission {
+            font-size: 32px;
+            padding: 80px 0;
+            background-color: #fff;
+            font-weight: 300;
         }
-        .section-title {
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 60px;
-            color: #ffffff;
+
+        /* Преимущества (Сетка) */
+        .features {
+            background-color: #fff;
+            padding-bottom: 80px;
         }
-        .services-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            border-top: 1px solid #ddd;
+            padding-top: 40px;
         }
-        .service-card {
-            background-color: #1a1d24;
-            padding: 40px 30px;
-            border-radius: 12px;
-            border-top: 4px solid #ff4500;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .feature-card {
+            position: relative;
         }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        .service-card h3 {
-            font-size: 24px;
+        .feature-num {
+            font-size: 14px;
+            color: #888;
             margin-bottom: 20px;
-            color: #ffffff;
+            display: block;
         }
-        .service-card p {
-            color: #aaaaaa;
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Клиенты и Вендоры */
+        .trust-section {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .trust-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        .logos-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Форма заявки */
+        .contact-form-section {
+            background-color: #0a0a0a;
+            color: #fff;
+            padding: 80px 0;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .form-info h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .form-info p {
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+        .form-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-inputs input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #555;
+            padding: 15px 0;
+            color: #fff;
             font-size: 16px;
+            outline: none;
+        }
+        .form-inputs input::placeholder {
+            color: #777;
+        }
+        .btn-submit {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            align-self: flex-start;
+            border-radius: 4px;
         }
 
         /* Подвал */
-        .footer {
-            background-color: #050608;
-            padding: 50px 5%;
-            text-align: center;
-            border-top: 1px solid #222;
+        footer {
+            background-color: #000;
+            color: #555;
+            padding: 40px 0;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
         }
-        .footer-info {
-            font-size: 16px;
-            color: #888888;
-            margin-bottom: 20px;
-        }
-        .footer-info strong {
-            color: #ffffff;
-        }
-        .footer-contacts a {
-            color: #ff4500;
+        footer a {
+            color: #555;
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 18px;
+            margin-left: 15px;
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo-container">
-            <img src="logo_w.png" alt="Логотип ИЦБ" onerror="this.style.display='none';">
-        </div>
-        <nav class="nav-links">
-            <a href="#about">О компании</a>
-            <a href="#services">Услуги</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
-    </header>
+    <div class="dark-section">
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <img src="logo_w.png" alt="ICSEC Логотип">
+                </div>
+                <nav>
+                    <a href="#">Компания</a>
+                    <a href="#">Услуги</a>
+                    <a href="#">Контакты</a>
+                    <span class="contact-phone" style="margin-left: 30px;">+7 (495) 123-23-23</span>
+                </nav>
+            </header>
 
-    <section class="hero" id="about">
-        <h1>Инновационный <span>Центр Безопасности</span></h1>
-        <p>Надежная защита ваших данных и IT-инфраструктуры. Комплексный подход к предотвращению киберугроз на высшем уровне для бизнеса любого масштаба.</p>
-        <a href="#contacts" class="cta-button">Получить консультацию</a>
+            <section class="hero">
+                <div>
+                    <h1>Компания ICSEC:<br><span>информационная безопасность</span></h1>
+                </div>
+                <div class="hero-image-placeholder">
+                    [ Место для фонового фото из макета ]
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section class="mission container">
+        <p>Наша цель - создавать надёжные и эффективные решения, полностью соответствующие регуляторным требованиям и специфике бизнеса.</p>
     </section>
 
-    <section class="services-section" id="services">
-        <h2 class="section-title">Наши услуги</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Защита конфиденциальной информации</h3>
-                <p>Здесь вы сможете вставить подробное описание услуги по контролю защищенности информации от утечки по техническим каналам.</p>
+    <section class="features container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-num">/01</span>
+                <h3>Опыт</h3>
+                <p>Более 10 лет работы в сфере информационной безопасности</p>
             </div>
-            <div class="service-card">
-                <h3>Комплексный аудит ИБ</h3>
-                <p>Сюда пойдет текст об оценке текущего состояния защищенности вашей инфраструктуры, выявлении уязвимостей и бизнес-рисков.</p>
+            <div class="feature-card">
+                <span class="feature-num">/02</span>
+                <h3>Масштаб</h3>
+                <p>Реализация проектов для крупных промышленных и корпоративных заказчиков</p>
             </div>
-            <div class="service-card">
-                <h3>Тестирование на проникновение</h3>
-                <p>Место для описания имитации реальных хакерских атак для практической проверки надежности систем вашей компании.</p>
+            <div class="feature-card">
+                <span class="feature-num">/03</span>
+                <h3>Экспертиза</h3>
+                <p>Инженерная команда с подтвержденной квалификацией</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-num">/04</span>
+                <h3>Надежность</h3>
+                <p>Опыт с регуляторными требованиями отрасли</p>
             </div>
         </div>
     </section>
 
-    <footer class="footer" id="contacts">
-        <div class="footer-info">
-            <p><strong>Адрес:</strong> 115432, г. Москва, ул. Трофимова, д. 27, к. 1, эт 5 пом I, ком 33.</p>
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div>
+                    <div class="trust-title">Вендоры и Дистрибьюторы</div>
+                </div>
+                <div class="logos-wrap">
+                    <span>POSITIVE TECHNOLOGIES</span>
+                    <span>CHECK POINT</span>
+                    <span>PROWAY</span>
+                </div>
+            </div>
+            <div class="trust-grid">
+                <div>
+                    <div class="trust-title">Нам доверяют</div>
+                </div>
+                <div class="logos-wrap">
+                    <span>ОТП банк</span>
+                    <span>РОСАТОМ</span>
+                    <span>Волжское пароходство</span>
+                    <span>ПРОГРЕСС</span>
+                </div>
+            </div>
         </div>
-        <div class="footer-contacts">
-            <a href="tel:+74993978722">📞 +7 (499) 397-87-22</a>
-            <a href="mailto:info@icsec.ru">✉️ info@icsec.ru</a>
-            <a href="https://icsec.ru" target="_blank">🌐 icsec.ru</a>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="container form-grid">
+            <div class="form-info">
+                <h2>У вас уникальный запрос?</h2>
+                <p>Не нашли услугу под свою задачу? Оставьте контакты, разберем ваш кейс и предложим формат.</p>
+            </div>
+            <div class="form-inputs">
+                <input type="text" placeholder="Ваше имя">
+                <input type="tel" placeholder="Телефон">
+                <input type="email" placeholder="Почта">
+                <input type="text" placeholder="Telegram">
+                <button class="btn-submit">Отправить</button>
+            </div>
         </div>
-        <p style="color: #444; margin-top: 30px; font-size: 14px;">© 2026 Инновационный Центр Безопасности</p>
+    </section>
+
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; width: 100%;">
+            <div>&copy; 2026 ICSEC</div>
+            <div>
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Политика обработки персональных данных</a>
+                <a href="#">Реквизиты</a>
+            </div>
+        </div>
     </footer>
 
 </body>
