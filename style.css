@@ -72,7 +72,7 @@ nav a:hover { opacity: 0.6; }
 
 .features-layout { display: flex; align-items: center; gap: 80px; }
 .features-left { flex: 1; }
-.features-img { width: 100%; height: auto; border-radius: 4px; filter: grayscale(100%); }
+.features-img { width: 100%; height: auto; border-radius: 4px; }
 .features-right { flex: 1.2; }
 
 .features-grid {
@@ -88,7 +88,6 @@ nav a:hover { opacity: 0.6; }
 .feature-card p { font-size: 15px; color: #aaaaaa; }
 
 /* БЛОК 3: Доверие */
-/* БЛОК 3: Доверие (#262626) */
 .trust-section {
     background-color: #262626;
     padding: 100px 0;
@@ -202,4 +201,34 @@ footer { background: #000; padding: 50px 0; border-top: 1px solid #1a1a1a; font-
     .hero h1 { font-size: 36px; }
     .mission { font-size: 24px; }
     .features-grid, .trust-grid, .form-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Интерактив для формы */
+.form-inputs input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 15px 0;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease; /* Плавный переход цвета */
+}
+
+/* Эффект при наведении */
+.form-inputs input:hover {
+    border-bottom-color: #666;
+}
+
+/* Эффект при клике (фокусе) */
+.form-inputs input:focus {
+    border-bottom-color: #ff4500; /* Тот самый оранжевый */
+    padding-left: 10px; /* Небольшой сдвиг для динамики */
+}
+
+/* Кнопка отправить */
+.btn-submit:hover {
+    background-color: #ff4500; /* Кнопка тоже становится оранжевой при наведении */
+    color: #fff;
+    transform: translateY(-2px);
 }
