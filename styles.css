@@ -1,0 +1,24 @@
+.hero-image-placeholder {
+            /* Укажите здесь имя вашего файла с картинкой */
+            background-image: url('hero-bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 16px; /* Красивые скругленные углы */
+            min-height: 450px; /* Делаем блок повыше */
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Объемная тень */
+        }
+        
+        /* Добавляем легкое затемнение поверх картинки для стиля */
+        .hero-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.1) 100%);
+            z-index: 1;
+        }
