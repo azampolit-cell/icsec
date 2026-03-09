@@ -115,19 +115,79 @@ nav a:hover { opacity: 0.6; }
     padding: 120px 0;
 }
 
-.features { padding-bottom: 100px; }
+/* Секция преимуществ (Новая вёрстка) */
+.features {
+    padding: 120px 0;
+    background-color: #ffffff;
+}
+
+.features-layout {
+    display: flex;
+    align-items: center; /* Центрируем по вертикали */
+    gap: 80px; /* Расстояние между фото и текстом */
+}
+
+.features-left {
+    flex: 1; /* Занимает 1 часть пространства */
+}
+
+.features-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px; /* Совсем легкое скругление как в PDF */
+    filter: grayscale(100%); /* Делаем ч/б для стиля макета */
+}
+
+.features-right {
+    flex: 1.2; /* Текстовая часть чуть шире */
+}
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки в правой части */
+    gap: 60px 40px;
     border-top: 1px solid #eeeeee;
-    padding-top: 60px;
+    padding-top: 40px;
 }
 
-.feature-num { color: #888; display: block; margin-bottom: 20px; }
-.feature-card h3 { font-size: 24px; margin-bottom: 15px; }
-.feature-card p { font-size: 15px; color: #555; }
+.feature-num {
+    font-size: 16px;
+    color: #888;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.feature-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Обновление адаптивности для этого блока */
+@media (max-width: 1024px) {
+    .features-layout {
+        flex-direction: column; /* На планшетах фото сверху, текст снизу */
+        gap: 50px;
+    }
+    
+    .features-right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr; /* На телефонах всё в одну колонку */
+        gap: 40px;
+    }
+}
 
 /* Секция доверия */
 .trust-section { background: #f8f8f8; padding: 100px 0; }
