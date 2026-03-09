@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICSEC — Инновационный Центр Безопасности</title>
+    <title>ICSEC — Информационная безопасность</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -99,7 +99,7 @@
     </section>
 
     <footer>
-        <div class="container footer-inner fade-in">
+        <div class="container footer-inner">
             <div>&copy; 2026 ICSEC</div>
             <div class="footer-links">
                 <a href="#">Политика конфиденциальности</a>
@@ -110,9 +110,24 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new IntersectionObserver((entries) => {
+        // Более надежный скрипт анимации
+        window.addEventListener('load', function() {
+            const options = {
+                threshold: 0.1
+            };
+
+            const callback = (entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        observer
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(callback, options);
+            const targets = document.querySelectorAll('.fade-in');
+            targets.forEach(target => observer.observe(target));
+        });
+    </script>
+</body>
+</html>
