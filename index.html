@@ -33,8 +33,110 @@
 
     <div class="black-bg-wrapper">
         <section class="mission container fade-in">
-            <p>Наша цель — создавать надёжные и эффективные решения, полностью соответствующие регуляторным требованиям и специфике бизнеса. [cite: 8, 9]</p>
+            <p>Наша цель — создавать надёжные и эффективные решения, полностью соответствующие регуляторным требованиям и специфике бизнеса.</p>
         </section>
+
+        <section class="features container">
+            <div class="features-layout">
+                <div class="features-left fade-in">
+                    <img src="logo_in.png" alt="Информационная безопасность" class="features-img">
+                </div>
+                <div class="features-right">
+                    <div class="features-grid">
+                        <div class="feature-card fade-in delay-1">
+                            <span class="feature-num">/01</span>
+                            <h3>Опыт</h3>
+                            <p>Более 10 лет работы в сфере информационной безопасности</p>
+                        </div>
+                        <div class="feature-card fade-in delay-2">
+                            <span class="feature-num">162</span>
+                            <h3>Масштаб</h3>
+                            <p>Реализация проектов для крупных промышленных и корпоративных заказчиков</p>
+                        </div>
+                        <div class="feature-card fade-in delay-3">
+                            <span class="feature-num">103</span>
+                            <h3>Экспертиза</h3>
+                            <p>Инженерная команда с подтвержденной квалификацией</p>
+                        </div>
+                        <div class="feature-card fade-in delay-4">
+                            <span class="feature-num">/04</span>
+                            <h3>Надежность</h3>
+                            <p>Опыт с регуляторными требованиями отрасли</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid fade-in delay-1">
+                <div class="trust-title">20+ Поставщиков работают с нами</div>
+                <div class="logos-wrap">
+                    <div class="vendor-label">ВЕНДОРЫ И ДИСТРИБЬЮТОРЫ</div>
+                    <span>POSITIVE TECHNOLOGIES</span>
+                    <span>CHECK POINT</span>
+                    <span>ACORT</span>
+                    <span>PROWAY</span>
+                    <span>FORTIS</span>
+                    <span>FUEL</span>
+                </div>
+            </div>
+            
+            <div class="trust-grid fade-in delay-2">
+                <div class="trust-title">Нам доверяют</div>
+                <div class="logos-wrap">
+                    <span>ОТП банк</span>
+                    <span>РОСАТОМ</span>
+                    <span>Волжское пароходство</span>
+                    <span>ПРОГРЕСС</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form-section" id="contacts">
+        <div class="container form-grid">
+            <div class="form-info fade-in delay-1">
+                <h2>У вас уникальный запрос?</h2>
+                <p>Не нашли услугу под свою задачу? Оставьте контакты, разберем ваш кейс и предложим формат.</p>
+            </div>
+            <div class="form-inputs fade-in delay-2">
+                <input type="text" placeholder="Ваше имя">
+                <input type="tel" placeholder="Телефон">
+                <input type="email" placeholder="Почта">
+                <input type="text" placeholder="Telegram">
+                <button class="btn-submit">Отправить</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-inner">
+            <div>&copy; 2026 ICSEC</div>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Политика обработки персональных данных</a>
+                <a href="#">Реквизиты</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>        </section>
 
         <section class="features container">
             <div class="features-layout">
