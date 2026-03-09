@@ -16,7 +16,7 @@ body {
 /* Темная секция (Шапка и Геро-блок на весь экран) */
 .dark-section {
     /* Добавляем темный градиент поверх картинки для читаемости текста */
-    background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.4)), url('hero-bg.jpg');
+    background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.4)), url('hero-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
