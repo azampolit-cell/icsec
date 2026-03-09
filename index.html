@@ -4,242 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICSEC - Информационная безопасность</title>
-    <style>
-        /* Базовые стили */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #f4f4f4;
-            color: #111;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.5;
-            overflow-x: hidden; /* Чтобы анимации не вызывали горизонтальный скролл */
-        }
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        
-        /* Темная секция (Шапка и Геро-блок) */
-        .dark-section {
-            background-color: #0a0a0a;
-            color: #fff;
-            padding-bottom: 80px;
-        }
-
-        /* Шапка */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .logo img {
-            height: 100px; 
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-        nav a:hover { color: #888; }
-        .contact-phone {
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        /* Геро-блок */
-        .hero {
-            padding: 100px 0 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 300;
-            line-height: 1.2;
-        }
-        .hero h1 span {
-            font-weight: bold;
-        }
-        .hero-image-placeholder {
-            background: #222;
-            border-radius: 10px;
-            min-height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Миссия */
-        .mission {
-            font-size: 32px;
-            padding: 100px 0;
-            background-color: #fff;
-            font-weight: 300;
-        }
-
-        /* Преимущества (Сетка) */
-        .features {
-            background-color: #fff;
-            padding-bottom: 100px;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            border-top: 1px solid #ddd;
-            padding-top: 50px;
-        }
-        .feature-num {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 20px;
-            display: block;
-        }
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-        .feature-card p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        /* Клиенты и Вендоры */
-        .trust-section {
-            background-color: #f9f9f9;
-            padding: 100px 0;
-        }
-        .trust-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        .trust-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #888;
-            margin-bottom: 20px;
-        }
-        .logos-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-            font-weight: bold;
-            color: #333;
-            font-size: 18px;
-        }
-
-        /* Форма заявки */
-        .contact-form-section {
-            background-color: #0a0a0a;
-            color: #fff;
-            padding: 100px 0;
-        }
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-        .form-info h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-        .form-info p {
-            color: #aaa;
-            margin-bottom: 40px;
-            font-size: 18px;
-        }
-        .form-inputs {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-        .form-inputs input {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #555;
-            padding: 15px 0;
-            color: #fff;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .form-inputs input:focus {
-            border-bottom-color: #fff;
-        }
-        .btn-submit {
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 18px 40px;
-            font-weight: bold;
-            margin-top: 20px;
-            cursor: pointer;
-            align-self: flex-start;
-            border-radius: 4px;
-            transition: background 0.3s, transform 0.2s;
-        }
-        .btn-submit:hover {
-            background: #ddd;
-            transform: translateY(-2px);
-        }
-
-        /* Подвал */
-        footer {
-            background-color: #000;
-            color: #555;
-            padding: 40px 0;
-            font-size: 12px;
-        }
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-        }
-        footer a {
-            color: #555;
-            text-decoration: none;
-            margin-left: 20px;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: #fff;
-        }
-
-        /* =========================================
-           КЛАССЫ ДЛЯ АНИМАЦИИ ПРИ СКРОЛЛЕ 
-           ========================================= */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        /* Класс, который добавляется через JS, когда элемент появляется на экране */
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Задержки для эффекта "лесенки" */
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -262,7 +27,7 @@
                     <h1>Компания ICSEC:<br><span>информационная безопасность</span></h1>
                 </div>
                 <div class="hero-image-placeholder fade-in delay-2">
-            </div>
+                    </div>
             </section>
         </div>
     </div>
@@ -351,26 +116,18 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Настраиваем "наблюдателя"
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // Если элемент появился в зоне видимости экрана
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        // Прекращаем наблюдение, чтобы анимация проигралась только один раз
                         observer.unobserve(entry.target); 
                     }
                 });
-            }, {
-                // Анимация начнется, когда видно 15% элемента
-                threshold: 0.15 
-            });
+            }, { threshold: 0.15 });
 
-            // Находим все элементы с классом fade-in и передаем их наблюдателю
             const animatedElements = document.querySelectorAll('.fade-in');
             animatedElements.forEach(el => observer.observe(el));
         });
     </script>
-
 </body>
 </html>
