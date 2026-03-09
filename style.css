@@ -13,11 +13,24 @@ body {
     padding: 0 40px;
 }
 
-/* Темная секция (Шапка и Геро-блок) */
+/* Темная секция (Шапка и Геро-блок на весь экран) */
 .dark-section {
-    background-color: #0a0a0a;
+    /* Добавляем темный градиент поверх картинки для читаемости текста */
+    background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.4)), url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #fff;
-    padding-bottom: 80px;
+    min-height: 100vh; /* Растягиваем на 100% высоты экрана */
+    display: flex;
+    flex-direction: column;
+}
+
+.dark-section-inner {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Позволяет контенту занять всё свободное место */
+    width: 100%;
 }
 
 /* Шапка */
@@ -26,11 +39,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 .logo img {
     height: 50px;
-    filter: invert(1); 
+    /* Инверсию убрали, грузится как есть */
 }
 nav a {
     color: #fff;
@@ -49,20 +62,24 @@ nav a:hover { color: #888; }
 
 /* Геро-блок */
 .hero {
-    padding: 100px 0 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center; /* Центрируем заголовок по вертикали экрана */
+    padding: 60px 0;
+}
+.hero-content {
+    max-width: 800px; /* Чтобы текст не разъезжался на всю ширину */
 }
 .hero h1 {
-    font-size: 48px;
+    font-size: 56px; /* Сделали чуть крупнее, как в макете */
     font-weight: 300;
     line-height: 1.2;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Легкая тень тексту для объема */
 }
 .hero h1 span {
     font-weight: bold;
 }
+/* Старый класс .hero-image-placeholder полностью удален из CSS */
 
 /* Обновленный блок для фото */
 .hero-image-placeholder {
