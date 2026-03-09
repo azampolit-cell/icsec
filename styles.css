@@ -1,24 +1,241 @@
+/* Базовые стили */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: #f4f4f4;
+    color: #111;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Темная секция (Шапка и Геро-блок) */
+.dark-section {
+    background-color: #0a0a0a;
+    color: #fff;
+    padding-bottom: 80px;
+}
+
+/* Шапка */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.logo img {
+    height: 50px;
+    filter: invert(1); 
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+nav a:hover { color: #888; }
+.contact-phone {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Геро-блок */
+.hero {
+    padding: 100px 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+.hero h1 {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+.hero h1 span {
+    font-weight: bold;
+}
+
+/* Обновленный блок для фото */
 .hero-image-placeholder {
-            /* Укажите здесь имя вашего файла с картинкой */
-            background-image: url('hero-bg.png'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 16px; /* Красивые скругленные углы */
-            min-height: 450px; /* Делаем блок повыше */
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Объемная тень */
-        }
-        
-        /* Добавляем легкое затемнение поверх картинки для стиля */
-        .hero-image-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
-            background: linear-gradient(135deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.1) 100%);
-            z-index: 1;
-        }
+    background-image: url('hero-bg.png'); /* Имя вашей картинки */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    min-height: 450px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.hero-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.1) 100%);
+    z-index: 1;
+}
+
+/* Миссия */
+.mission {
+    font-size: 32px;
+    padding: 100px 0;
+    background-color: #fff;
+    font-weight: 300;
+}
+
+/* Преимущества (Сетка) */
+.features {
+    background-color: #fff;
+    padding-bottom: 100px;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 50px;
+}
+.feature-num {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+    display: block;
+}
+.feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.feature-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Клиенты и Вендоры */
+.trust-section {
+    background-color: #f9f9f9;
+    padding: 100px 0;
+}
+.trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+.trust-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 20px;
+}
+.logos-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Форма заявки */
+.contact-form-section {
+    background-color: #0a0a0a;
+    color: #fff;
+    padding: 100px 0;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+.form-info h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.form-info p {
+    color: #aaa;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.form-inputs input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+.form-inputs input:focus {
+    border-bottom-color: #fff;
+}
+.btn-submit {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 18px 40px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    align-self: flex-start;
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.2s;
+}
+.btn-submit:hover {
+    background: #ddd;
+    transform: translateY(-2px);
+}
+
+/* Подвал */
+footer {
+    background-color: #000;
+    color: #555;
+    padding: 40px 0;
+    font-size: 12px;
+}
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+}
+footer a {
+    color: #555;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+footer a:hover {
+    color: #fff;
+}
+
+/* Классы для анимации при скролле */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
