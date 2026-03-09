@@ -1,4 +1,11 @@
 /* Базовые стили */
+html {
+    scroll-behavior: smooth; /* Включаем плавную прокрутку для всей страницы! */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: #f4f4f4;
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     background-color: #f4f4f4;
