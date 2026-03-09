@@ -88,11 +88,76 @@ nav a:hover { opacity: 0.6; }
 .feature-card p { font-size: 15px; color: #aaaaaa; }
 
 /* БЛОК 3: Доверие */
-.trust-section { background: #262626; padding: 120px 0; }
-.trust-grid { display: grid; grid-template-columns: 1fr 3fr; gap: 60px; margin-bottom: 80px; }
+/* БЛОК 3: Доверие (#262626) */
+.trust-section {
+    background-color: #262626;
+    padding: 100px 0;
+}
+
+.trust-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.trust-label {
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 2px;
+    border-left: 2px solid #ff4500; /* Оранжевый акцент */
+    padding-left: 15px;
+}
+
+/* Сетка плиток */
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки в ряд */
+    gap: 1px; /* Тонкие линии между плитками */
+    background-color: #333; /* Цвет линий-разделителей */
+    border: 1px solid #333;
+}
+
+.logo-tile {
+    background-color: #262626; /* Цвет плитки совпадает с фоном секции */
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    transition: all 0.4s ease;
+}
+
+.logo-tile img {
+    max-width: 100%;
+    max-height: 100%;
+    filter: grayscale(100%) brightness(0.8); /* Ч/Б по умолчанию */
+    opacity: 0.6;
+    transition: all 0.4s ease;
+}
+
+/* Эффект при наведении на плитку */
+.logo-tile:hover {
+    background-color: #2a2a2a;
+}
+
+.logo-tile:hover img {
+    filter: grayscale(0%) brightness(1); /* Возвращаем цвет */
+    opacity: 1;
+    transform: scale(1.05); /* Легкое увеличение */
+}
+
+/* Адаптивность для плитки */
+@media (max-width: 1024px) {
+    .logos-grid { grid-template-columns: repeat(2, 1fr); } /* 2 в ряд на планшетах */
+}
+
+@media (max-width: 480px) {
+    .logos-grid { grid-template-columns: 1fr; } /* 1 в ряд на мобилках */
+    .logo-tile { height: 140px; }
+}
 .trust-title { text-transform: uppercase; font-size: 13px; color: #888; letter-spacing: 1px; }
 .vendor-label { width: 100%; color: #666; font-size: 12px; margin-bottom: 15px; letter-spacing: 1px; }
-.logos-wrap { display: flex; flex-wrap: wrap; gap: 40px; font-weight: bold; font-size: 20px; color: #ffffff; }
 
 /* БЛОК 4: Контакты */
 .contact-form-section { background: #000000; padding: 120px 0; border-top: 1px solid #1a1a1a; }
