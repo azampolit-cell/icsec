@@ -8,10 +8,11 @@
         /* Базовые стили */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #f4f4f4; /* Светлый базовый фон */
+            background-color: #f4f4f4;
             color: #111;
             font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.5;
+            overflow-x: hidden; /* Чтобы анимации не вызывали горизонтальный скролл */
         }
         .container {
             max-width: 1300px;
@@ -35,7 +36,7 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .logo img {
-            height: 100px;
+            height: 100px; 
         }
         nav a {
             color: #fff;
@@ -44,7 +45,9 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: color 0.3s;
         }
+        nav a:hover { color: #888; }
         .contact-phone {
             font-weight: bold;
             font-size: 16px;
@@ -56,6 +59,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            align-items: center;
         }
         .hero h1 {
             font-size: 48px;
@@ -68,17 +72,19 @@
         .hero-image-placeholder {
             background: #222;
             border-radius: 10px;
-            min-height: 300px;
+            min-height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #555;
+            position: relative;
+            overflow: hidden;
         }
 
         /* Миссия */
         .mission {
             font-size: 32px;
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: #fff;
             font-weight: 300;
         }
@@ -86,17 +92,14 @@
         /* Преимущества (Сетка) */
         .features {
             background-color: #fff;
-            padding-bottom: 80px;
+            padding-bottom: 100px;
         }
         .features-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             border-top: 1px solid #ddd;
-            padding-top: 40px;
-        }
-        .feature-card {
-            position: relative;
+            padding-top: 50px;
         }
         .feature-num {
             font-size: 14px;
@@ -116,7 +119,7 @@
         /* Клиенты и Вендоры */
         .trust-section {
             background-color: #f9f9f9;
-            padding: 80px 0;
+            padding: 100px 0;
         }
         .trust-grid {
             display: grid;
@@ -137,13 +140,14 @@
             align-items: center;
             font-weight: bold;
             color: #333;
+            font-size: 18px;
         }
 
         /* Форма заявки */
         .contact-form-section {
             background-color: #0a0a0a;
             color: #fff;
-            padding: 80px 0;
+            padding: 100px 0;
         }
         .form-grid {
             display: grid;
@@ -157,11 +161,12 @@
         .form-info p {
             color: #aaa;
             margin-bottom: 40px;
+            font-size: 18px;
         }
         .form-inputs {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
         .form-inputs input {
             background: transparent;
@@ -171,20 +176,26 @@
             color: #fff;
             font-size: 16px;
             outline: none;
+            transition: border-color 0.3s;
         }
-        .form-inputs input::placeholder {
-            color: #777;
+        .form-inputs input:focus {
+            border-bottom-color: #fff;
         }
         .btn-submit {
             background: #fff;
             color: #000;
             border: none;
-            padding: 15px 30px;
+            padding: 18px 40px;
             font-weight: bold;
             margin-top: 20px;
             cursor: pointer;
             align-self: flex-start;
             border-radius: 4px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-submit:hover {
+            background: #ddd;
+            transform: translateY(-2px);
         }
 
         /* Подвал */
@@ -193,23 +204,50 @@
             color: #555;
             padding: 40px 0;
             font-size: 12px;
+        }
+        .footer-inner {
             display: flex;
             justify-content: space-between;
         }
         footer a {
             color: #555;
             text-decoration: none;
-            margin-left: 15px;
+            margin-left: 20px;
+            transition: color 0.3s;
         }
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* =========================================
+           КЛАССЫ ДЛЯ АНИМАЦИИ ПРИ СКРОЛЛЕ 
+           ========================================= */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Класс, который добавляется через JS, когда элемент появляется на экране */
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Задержки для эффекта "лесенки" */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
     </style>
 </head>
 <body>
 
     <div class="dark-section">
         <div class="container">
-            <header>
+            <header class="fade-in">
                 <div class="logo">
-                    <img src="logo_w.png" alt="ICSEC Логотип">
+                    <img src="logo.png" alt="ICSEC Логотип">
                 </div>
                 <nav>
                     <a href="#">Компания</a>
@@ -220,38 +258,38 @@
             </header>
 
             <section class="hero">
-                <div>
+                <div class="fade-in delay-1">
                     <h1>Компания ICSEC:<br><span>информационная безопасность</span></h1>
                 </div>
-                <div class="hero-image-placeholder">
+                <div class="hero-image-placeholder fade-in delay-2">
                     [ Место для фонового фото из макета ]
                 </div>
             </section>
         </div>
     </div>
 
-    <section class="mission container">
+    <section class="mission container fade-in">
         <p>Наша цель - создавать надёжные и эффективные решения, полностью соответствующие регуляторным требованиям и специфике бизнеса.</p>
     </section>
 
     <section class="features container">
         <div class="features-grid">
-            <div class="feature-card">
+            <div class="feature-card fade-in delay-1">
                 <span class="feature-num">/01</span>
                 <h3>Опыт</h3>
                 <p>Более 10 лет работы в сфере информационной безопасности</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in delay-2">
                 <span class="feature-num">/02</span>
                 <h3>Масштаб</h3>
                 <p>Реализация проектов для крупных промышленных и корпоративных заказчиков</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in delay-3">
                 <span class="feature-num">/03</span>
                 <h3>Экспертиза</h3>
                 <p>Инженерная команда с подтвержденной квалификацией</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card fade-in delay-4">
                 <span class="feature-num">/04</span>
                 <h3>Надежность</h3>
                 <p>Опыт с регуляторными требованиями отрасли</p>
@@ -261,7 +299,7 @@
 
     <section class="trust-section">
         <div class="container">
-            <div class="trust-grid">
+            <div class="trust-grid fade-in delay-1">
                 <div>
                     <div class="trust-title">Вендоры и Дистрибьюторы</div>
                 </div>
@@ -271,7 +309,7 @@
                     <span>PROWAY</span>
                 </div>
             </div>
-            <div class="trust-grid">
+            <div class="trust-grid fade-in delay-2">
                 <div>
                     <div class="trust-title">Нам доверяют</div>
                 </div>
@@ -287,11 +325,11 @@
 
     <section class="contact-form-section">
         <div class="container form-grid">
-            <div class="form-info">
+            <div class="form-info fade-in delay-1">
                 <h2>У вас уникальный запрос?</h2>
                 <p>Не нашли услугу под свою задачу? Оставьте контакты, разберем ваш кейс и предложим формат.</p>
             </div>
-            <div class="form-inputs">
+            <div class="form-inputs fade-in delay-2">
                 <input type="text" placeholder="Ваше имя">
                 <input type="tel" placeholder="Телефон">
                 <input type="email" placeholder="Почта">
@@ -302,7 +340,7 @@
     </section>
 
     <footer>
-        <div class="container" style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="container footer-inner fade-in">
             <div>&copy; 2026 ICSEC</div>
             <div>
                 <a href="#">Политика конфиденциальности</a>
@@ -311,6 +349,29 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Настраиваем "наблюдателя"
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Если элемент появился в зоне видимости экрана
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Прекращаем наблюдение, чтобы анимация проигралась только один раз
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                // Анимация начнется, когда видно 15% элемента
+                threshold: 0.15 
+            });
+
+            // Находим все элементы с классом fade-in и передаем их наблюдателю
+            const animatedElements = document.querySelectorAll('.fade-in');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
 </html>
