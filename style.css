@@ -34,7 +34,7 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logo img { height: 100px; width: auto; }
+.logo img { height: 80px; width: auto; }
 
 nav a {
     color: #ffffff;
